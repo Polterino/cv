@@ -1,0 +1,182 @@
+/* --- VARIABILI E CONFIGURAZIONE --- */
+:root {
+    --bg-dark: #0a0a0a;
+    --card-bg: rgba(26, 26, 26, 0.85); /* Leggermente più opaco per nascondere meglio le particelle */
+    --text: #ffffff;
+    --text-mute: #a1a1a1;
+    --accent: #bb86fc;    /* Viola Neon */
+    --accent-dim: rgba(187, 134, 252, 0.1);
+}
+
+/* Reset base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--bg-dark); /* Sfondo statico */
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* --- CANVAS PARTICELLE --- */
+#particles-js {
+    position: fixed; /* Posizione fissa rispetto alla viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Copre l'intera altezza del documento per le particelle */
+    z-index: 0; /* Sotto il contenuto del wrapper */
+}
+
+/* Container principale */
+.wrapper { max-width: 850px; margin: 0 auto; padding: 80px 20px; position: relative; z-index: 1; } /* wrapper sopra il canvas */
+
+/* --- HEADER --- */
+header { margin-bottom: 80px; }
+.pre-title { color: var(--accent); font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 10px;}
+
+h1 { 
+    font-size: 3.5rem; 
+    font-weight: 800; 
+    margin-bottom: 15px; 
+    background: linear-gradient(to right, #fff, #999); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+}
+
+.bio { font-size: 1.1rem; color: var(--text-mute); max-width: 600px; margin-bottom: 30px; }
+
+.social-links { display: flex; gap: 15px; flex-wrap: wrap; }
+.btn-outline {
+    color: var(--text);
+    text-decoration: none;
+    border: 1px solid #333;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+.btn-outline:hover {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+    color: var(--accent);
+}
+
+/* --- SEZIONI GENERALI --- */
+section { margin-bottom: 80px; }
+
+.section-header { 
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 30px; 
+    color: var(--accent);
+    font-family: monospace; 
+    font-size: 1.1rem;
+}
+.section-header::after {
+    content: ''; flex: 1; height: 1px; background: #333; margin-left: 20px;
+}
+
+/* --- CARDS & LINKS --- */
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px); 
+    padding: 25px 30px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(187, 134, 252, 0.15);
+}
+
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px; flex-wrap: wrap; gap: 10px; }
+.card-title { font-size: 1.2rem; font-weight: 700; color: #fff; }
+.card-date { font-family: monospace; color: var(--accent); font-size: 0.9rem; }
+
+/* Stili per i Link dentro le Card */
+.card-link {
+    display: inline-block;
+    color: var(--text-mute);
+    font-size: 0.95rem;
+    font-style: italic;
+    margin-bottom: 15px;
+    text-decoration: none;
+    border-bottom: 1px dotted #555;
+    transition: color 0.2s;
+}
+.card-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+.small-link {
+    font-size: 0.85rem;
+    color: #666;
+    text-decoration: none;
+    transition: 0.2s;
+}
+.small-link:hover { color: var(--accent); text-decoration: underline; }
+
+.card-school { color: var(--text-mute); display: block; }
+.card-desc { color: #ccc; font-size: 0.95rem; }
+
+/* --- SKILLS --- */
+.skill-cat-title { margin-bottom: 15px; color: var(--text-mute); font-weight: normal; }
+.mb-25 { margin-bottom: 25px; }
+.tags-container { display: flex; flex-wrap: wrap; gap: 12px; }
+.tag {
+    background: rgba(31, 31, 31, 0.8);
+    color: #ddd;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+.tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: #252525;
+}
+
+/* --- AWARDS LIST --- */
+.pad-small { padding: 10px 30px; }
+.award-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #222;
+}
+.award-item:last-child { border-bottom: none; }
+.award-info { display: flex; flex-direction: column; }
+.award-title { font-weight: 600; font-size: 1rem; }
+.award-issuer { color: var(--text-mute); font-size: 0.9rem; }
+
+.award-link {
+    font-size: 0.85rem;
+    color: var(--text-mute);
+    text-decoration: none;
+    border: 1px solid #333;
+    padding: 4px 10px;
+    border-radius: 4px;
+    transition: 0.2s;
+    white-space: nowrap;
+}
+.award-link:hover { border-color: var(--accent); color: var(--accent); }
+
+/* --- FOOTER --- */
+footer { text-align: center; color: #444; padding-bottom: 40px; font-size: 0.8rem; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 600px) {
+    .wrapper { padding: 40px 20px; }
+    h1 { font-size: 2.5rem; }
+    .card-top { flex-direction: column; gap: 2px; }
+    .award-item { flex-direction: row; align-items: center; gap: 10px; }
+    .award-link { padding: 4px 8px; }
+}
